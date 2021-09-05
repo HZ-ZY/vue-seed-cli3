@@ -1,0 +1,249 @@
+// 自定义css
+.flex-row {
+    display: flex;
+}
+
+.flex-row-c {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-row--c {
+    display: flex;
+    align-items: center;
+}
+
+.flex-row-c-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-sb-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-row-sb-t {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flex-row-sb-b {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.flex-row-c-sb {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+}
+
+.flex-row-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-row-l {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-row-l-c {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-row-c-t {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.flex-row-r-c {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-row-r {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-row--b {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-col-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-col--c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-col-c-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col-sb-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-col-c-sb {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+}
+
+.flex-col-sb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-col-t-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-col-c-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.flex-col-t {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.flex-col-b {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.flex-col-b-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-col-c-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.flex-col--l {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-col--r {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+// 多行省略
+.del-text-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 限制在一个块元素显示的文本的行数 */
+    -webkit-line-clamp: 2;
+    /* 设置或检索伸缩盒对象的子元素的排列方式 */
+    -webkit-box-orient: vertical;
+}
+
+.del-text-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 限制在一个块元素显示的文本的行数 */
+    -webkit-line-clamp: 3;
+    /* 设置或检索伸缩盒对象的子元素的排列方式 */
+    -webkit-box-orient: vertical;
+}
+
+.del-text-4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 限制在一个块元素显示的文本的行数 */
+    -webkit-line-clamp: 4;
+    /* 设置或检索伸缩盒对象的子元素的排列方式 */
+    -webkit-box-orient: vertical;
+}
+
+.del-text-5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 限制在一个块元素显示的文本的行数 */
+    -webkit-line-clamp: 5;
+    /* 设置或检索伸缩盒对象的子元素的排列方式 */
+    -webkit-box-orient: vertical;
+}
+
+//单行省略
+.del-text {
+    /* 这个单词的意思是如果文字显示不开自动换行 */
+    /* white-space: normal; */
+    /* 1.这个单词的意思是如果文字显示不开也必须强制一行内显示 */
+    white-space: nowrap;
+    /* 2.溢出的部分隐藏起来 */
+    overflow: hidden;
+    /* 3. 文字溢出的时候用省略号来显示 */
+    text-overflow: ellipsis;
+}
+
+.r-50 {
+    border-radius: 50%;
+}
+
+.fixed-botton {
+    z-index: 3;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 10rpx;
+    height: 120rpx;
+    width: 100%;
+}

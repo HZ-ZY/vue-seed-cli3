@@ -1,0 +1,28 @@
+root = true        
+
+[*.{js,vue,css,html,json,scss}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 160
+
+
+# root	表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件	true/false
+# indent_style	设置缩进风格，tab或者空格	tab/space
+# indent_size	缩进的宽度，即列数，整数	4/2
+# tab_width	设置tab的列数,默认是indent_size。	4/2
+# end_of_line	换行符类型	lf、cr和crlf
+# charset	编码, 不建议使用utf-8-bom	latin1、utf-8、utf-8-bom、utf-16be和utf-16le
+# trim_trailing_whitespace	设为true表示会除去换行行首的任意空白字符	true/false
+# insert_final_newline	设为true表明使文件以一个空白行结尾	true/false
+# max_line_length	最大行宽	80
+
+
+# [*]
+# # 对于所有的js文件，设置文件字符集为utf-8
+# [*.js] 
+# # 设置所有JS,vue的缩进为
+# [*.{js,vue}]

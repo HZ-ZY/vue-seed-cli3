@@ -1,0 +1,5 @@
+// 全局scss变量
+$red: #ccc;
+:export {
+    red: $red;
+}

@@ -1,0 +1,56 @@
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial, sans-serif;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+//修改浏览器滚动条样式
+::-webkit-scrollbar {
+    width: 4px;
+    // background-color: #999999;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #999999;
+}
+
+
+/* ::-webkit-scrollbar-track {
+    // background: #303642;
+  } */
+
+::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+}

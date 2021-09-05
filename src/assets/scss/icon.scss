@@ -1,0 +1,24 @@
+/* 若出现app端无法显示Icon，请检查@font-face下的url路径是否都有加https: */
+
+@font-face {
+    font-family: 'iconfont';  /* Project id 2043682 */
+    src: url('//at.alicdn.com/t/font_2043682_d159ymzpy5.woff2?t=1629363108338') format('woff2'),
+         url('//at.alicdn.com/t/font_2043682_d159ymzpy5.woff?t=1629363108338') format('woff'),
+         url('//at.alicdn.com/t/font_2043682_d159ymzpy5.ttf?t=1629363108338') format('truetype');
+  }
+
+.newShopIcon {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.saasIcon {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
