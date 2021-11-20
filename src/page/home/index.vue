@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-08 21:14:41
- * @LastEditTime: 2021-09-05 15:30:38
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-web-seed\src\page\home\index.vue
--->
 <template>
     <div class="home">
         <van-button type="primary" @click="clickBtn">首页</van-button>
