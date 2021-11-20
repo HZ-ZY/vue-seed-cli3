@@ -1,11 +1,5 @@
-/*
- * @Author: your name
- * @Date: 2021-09-05 10:39:44
- * @LastEditTime: 2021-09-05 13:59:14
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \aa\vue.config.js
- */
+const isDev = process.env.NODE_ENV === 'development'
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require("path");
 module.exports = {
     // 部署应用包时的基本 URL,用法和 webpack 本身的 output.publicPath 一致
@@ -37,15 +31,13 @@ module.exports = {
         config.resolve.alias.set("vue$", "vue/dist/vue.esm.js").set("@", path.resolve(__dirname, "./src"));
     },
     configureWebpack: config => {
-        // console.log('config :>> ', config);
-        if (process.env.NODE_ENV === "production") {
-            // 生产环境
-            return {};
-        } else {
-            // 开发环境
-            return {
-                devtool: "source-map"
-            };
+
+        return {
+            devtool: isDev ? "source-map" : '',
+            plugins: [new CopyWebpackPlugin([{ //使用static文件夹
+                from: './static',
+                to: 'static'
+            }])]
         }
     },
     // css相关配置

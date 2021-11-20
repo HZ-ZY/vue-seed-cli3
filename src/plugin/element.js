@@ -1,12 +1,9 @@
-/*
- * @Author: your name
- * @Date: 2021-01-08 22:28:13
- * @LastEditTime: 2021-09-05 15:28:34
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-web-seed\src\plugin\element.js
- */
 import Vue from 'vue';
-import { Button, FormItem, Form } from 'element-ui';
+// 局部
+/* import { Button, FormItem, Form } from 'element-ui';
+Vue.use(Button).use(Form).use(FormItem) */
 
-Vue.use(Button).use(Form).use(FormItem)
+// 全局
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);

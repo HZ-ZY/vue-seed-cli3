@@ -11,6 +11,7 @@
         <van-button type="primary" @click="clickBtn">首页</van-button>
         <el-button type="primary" @click="$router.push({ path: '/login' })">to login</el-button>
         <div class="global" :style="{ color: varCss.red }">saas全局变了</div>
+        <img src="/static/cheatLogo.jpg">
     </div>
 </template>
 
