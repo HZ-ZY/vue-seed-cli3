@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-04 09:50:30
- * @LastEditTime: 2021-01-08 22:02:49
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \yellow-member-admin\src\router\index.js
- */
 import Vue from 'vue';
 import Router from 'vue-router';
 
@@ -13,21 +5,21 @@ Vue.use(Router);
 
 const router = new Router({
     routes: [{
-        path: '/',
-        component: () =>
-            import( /* webpackChunkName: "home" */ '@/page/home'),
-        meta: { title: '首页' },
-    },
-    {
-        path: '/login',
-        component: () =>
-            import( /* webpackChunkName: "login" */ '@/page/login'),
-        meta: { title: '登录' }
-    },
-    {
-        path: '*',
-        redirect: '@/page/404.vue'
-    }
+            path: '/',
+            component: () =>
+                import ( /* webpackChunkName: "home" */ '@/page/home'),
+            meta: { title: '首页' },
+        },
+        {
+            path: '/login',
+            component: () =>
+                import ( /* webpackChunkName: "login" */ '@/page/login'),
+            meta: { title: '登录' }
+        },
+        {
+            path: '*',
+            redirect: '@/page/404.vue'
+        }
     ]
 });
 

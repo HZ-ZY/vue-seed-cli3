@@ -1,13 +1,11 @@
 import axios from 'axios';
-import util from '../utils/util';
-import { AXIOZ_URL } from '@/plugin/config';
-
-const axioz = axios.create({
-    baseURL: AXIOZ_URL,
+import { baseURL } from '@/config';
+const request = axios.create({
+    baseURL,
     timeout: 10000,
 });
 //请求拦截器
-axioz.interceptors.request.use(
+request.interceptors.request.use(
     config => {
         /* if (config.url !== '/login') {
             config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`
@@ -21,7 +19,7 @@ axioz.interceptors.request.use(
     }
 );
 
-axioz.interceptors.response.use(
+request.interceptors.response.use(
     response => {
         if (response.status === 200) {
             return response.data;
@@ -41,22 +39,22 @@ axioz.interceptors.response.use(
     }
 );
 
-axioz.get = (options) => axioz({
+request.get = (options) => request({
     method: 'get',
     ...options
 })
-axioz.post = (options) => axioz({
+request.post = (options) => request({
     method: 'post',
     ...options,
 })
-axioz.del = (options) => axioz({
+request.del = (options) => request({
     method: 'del',
     ...options
 })
-axioz.put = (options) => axioz({
+request.put = (options) => request({
     method: 'put',
     ...options
 })
 
 
-export default axioz
+export default request

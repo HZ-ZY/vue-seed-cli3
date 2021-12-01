@@ -1,4 +1,5 @@
 // 自定义css
+//----------------------------------row
 .flex-row {
     display: flex;
 }
@@ -21,8 +22,27 @@
 
 .flex-row-sb-c {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.flex-row-fe-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-row-sa-c {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-row-l {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .flex-row-sb-t {
@@ -37,10 +57,9 @@
     align-items: flex-end;
 }
 
-.flex-row-c-sb {
+.flex-row-c {
     display: flex;
     justify-content: center;
-    align-items: space-between;
 }
 
 .flex-row-sb {
@@ -48,9 +67,9 @@
     justify-content: space-between;
 }
 
-.flex-row-l {
+.flex-row-sa {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .flex-row-l-c {
@@ -81,6 +100,7 @@
     align-items: flex-end;
 }
 
+//----------------------------------column
 .flex-col {
     display: flex;
     flex-direction: column;
@@ -112,11 +132,31 @@
     align-items: center;
 }
 
-.flex-col-c-sb {
+.flex-col-sa-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-col-fs-sb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flex-col-sa-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.flex-col-c {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: space-between;
 }
 
 .flex-col-sb {
@@ -177,6 +217,11 @@
     align-items: flex-end;
 }
 
+.flex-1 {
+    width: 100%;
+    flex: 1;
+}
+
 // 多行省略
 .del-text-2 {
     overflow: hidden;
@@ -234,16 +279,91 @@
     text-overflow: ellipsis;
 }
 
-.r-50 {
-    border-radius: 50%;
+@for $i from 0 through 100 {
+    .r#{$i} {
+        border-radius: $i+rpx;
+    }
 }
 
-.fixed-botton {
-    z-index: 3;
-    background-color: #fff;
-    position: fixed;
-    bottom: 0;
-    padding-bottom: 10rpx;
-    height: 120rpx;
-    width: 100%;
+
+/*边距*/
+
+.m0 {
+    margin: 0 !important;
+}
+
+.mt0 {
+    margin-top: 0 !important;
+}
+
+.mb0 {
+    margin-bottom: 0 !important;
+}
+
+.ml0 {
+    margin-left: 0 !important;
+}
+
+.mr0 {
+    margin-right: 0 !important;
+}
+
+.p0 {
+    padding: 0 !important;
+}
+
+.pt0 {
+    padding-top: 0 !important;
+}
+
+.pb0 {
+    padding-bottom: 0 !important;
+}
+
+.pl0 {
+    padding-left: 0 !important;
+}
+
+.pr0 {
+    padding-right: 0 !important;
+}
+
+.fz0 {
+    font-size: 0 !important;
+}
+
+@for $i from 1 through 200 {
+    .m#{$i} {
+        margin: $i+rpx;
+    }
+    .mt#{$i} {
+        margin-top: $i+rpx;
+    }
+    .mb#{$i} {
+        margin-bottom: $i+rpx;
+    }
+    .ml#{$i} {
+        margin-left: $i+rpx;
+    }
+    .mr#{$i} {
+        margin-right: $i+rpx;
+    }
+    .p#{$i} {
+        padding: $i+rpx;
+    }
+    .pt#{$i} {
+        padding-top: $i+rpx;
+    }
+    .pb#{$i} {
+        padding-bottom: $i+rpx;
+    }
+    .pl#{$i} {
+        padding-left: $i+rpx;
+    }
+    .pr#{$i} {
+        padding-right: $i+rpx;
+    }
+    .fz#{$i} {
+        font-size: $i+rpx;
+    }
 }
