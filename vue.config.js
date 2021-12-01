@@ -42,10 +42,7 @@ module.exports = {
     },
     // css相关配置
     css: {
-        // 是否分离css（插件ExtractTextPlugin）
-        extract: true,
-        // 是否开启 CSS source maps
-        sourceMap: false,
+
         // css预设器配置项
         loaderOptions: {
             sass: {
@@ -54,8 +51,7 @@ module.exports = {
               `
             }
         },
-        // 是否启用 CSS modules for all css / pre-processor files.
-        requireModuleExtension: true,
+
     },
     // 是否使用 thread-loader
     parallel: require("os").cpus().length > 1,
