@@ -1,15 +1,7 @@
-/*
- * @Author: your name
- * @Date: 2021-02-06 19:40:33
- * @LastEditTime: 2021-08-30 15:00:49
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \sass\store\index.js
- */
 // store/index.js
 import Vue from "vue";
 import Vuex from "vuex";
-import modules from "./modules";
+
 Vue.use(Vuex);
 
 const globalStore = {
@@ -49,7 +41,9 @@ const globalStore = {
 };
 
 const store = new Vuex.Store({
-    modules,
+    modules: {
+        layout: require("./modules/layout.js"),
+    },
     ...globalStore
 });
 

@@ -12,13 +12,21 @@ export default {
     data() {
         return {
             test: 0,
-            loading: true
+            loading: false
         };
     },
     created() {
+       /*  setInterval(() => {
+            this.$api.user.login({
+                m: "Admin",
+                c: "Public",
+                a: "dologin"
+            });
+        },1000); */
+
         setTimeout(() => {
             this.loading = false;
-        }, 3000);
+        }, 1000);
     },
     methods: {
         clickBtn() {

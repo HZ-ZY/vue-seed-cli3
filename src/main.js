@@ -14,7 +14,7 @@ import api from "@/api/index";
 Vue.prototype.$api = api;
 
 import Mixin from "./assets/mixin";
-Vue.use(Mixin); //注册全局Mixin
+Vue.mixin(Mixin) //注册全局Mixin
 
 Vue.config.productionTip = false;
 

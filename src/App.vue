@@ -1,8 +1,20 @@
 <template>
     <div id="app">
-        <router-view :key="$route.fullpath"></router-view>
+        <Default />
     </div>
 </template>
+<script>
+import Default from "./layouts/default.vue";
+export default {
+    components: {
+        Default
+    },
+    data() {
+        return {};
+    }
+};
+</script>
 <style lang="scss">
-@import '~@/assets/scss/theme'
+@import "~@/assets/scss/theme";
+@import "~@/assets/scss/custom";
 </style>

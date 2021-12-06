@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV === "development" ? "develop" : "product";
 // 各个环境域名
 const baseUrls = {
     // develop: "http://192.168.2.25:8081", // 测试环境 dev
-    develop: "https://minapp.yulaisoft.com", // 测试环境 dev
+    develop: "/api", // 测试环境 dev
     product: "https://minapp.yulaisoft.com", // 生产环境 product
 };
 
