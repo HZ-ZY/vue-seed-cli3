@@ -1,231 +1,152 @@
 <template>
-    <div class="login-wrap">
-        <div class="login">
-            <h2>管理员登录</h2>
-            <el-form ref="Loginform" :model="subForm" :rules="rules">
-                <div class="login_box">
-                    <!-- required就是不能为空 必须在css效果中有很大的作用 -->
-                    <!-- 可以简写为required -->
-                    <el-form-item prop="name"> <input v-model="subForm.name" type="text" required /><label>用户名</label> </el-form-item>
-                </div>
-                <div class="login_box">
-                    <el-form-item prop="password"> <input type="password" v-model="subForm.password" required /><label>密码</label> </el-form-item>
-                </div>
-            </el-form>
-            <a @click="submitForm" href="javascript:void(0)">
-                登录
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
+  <div class="login flex-row-c-c">
+
+    <div class="login-box flex-row--c">
+      <img src="/static/img/emails-rafiki.png" alt="" style="width: 50%;">
+      <div class="login-form" style="flex: 1;">
+        <div class="top flex-col--c">
+          <img src="/static/img/logo2.png" style="width: 150px" alt="" class="logo">
+          <span style="font-size: 15px">账号登录</span>
         </div>
+
+        <div class="form" style="margin-top: 20px">
+          <el-form ref="Loginform" :model="subForm" :rules="rules">
+            <el-form-item prop="name">
+              <el-input placeholder="请输入账号" v-model="subForm.name" type="text" required/>
+            </el-form-item>
+            <el-form-item prop="password" style="margin-bottom: 0">
+              <el-input placeholder="请输入密码" type="password" v-model="subForm.password" required/>
+            </el-form-item>
+
+            <el-form-item style="display: flex; justify-content: flex-start; background: transparent">
+              <el-checkbox v-model="checked">自动登录</el-checkbox>
+            </el-form-item>
+          </el-form>
+
+          <el-button
+            style="width: 100%;background: linear-gradient(180deg, #44DB90 0%, #2CCC7C 100%);"
+            type="success"
+            @keydown.enter="submitForm"
+            @click="submitForm">
+            登录
+          </el-button>
+        </div>
+      </div>
     </div>
+
+    <footer class="footer flex-col-c-c">
+      <p>春播万象大数据平台</p>
+      <p>copyright © 2021 春播万象（北京）科技有限公司</p>
+    </footer>
+  </div>
 </template>
 
 <script>
 export default {
-    data: function() {
-        return {
-            subForm: {
-                name: "",
-                password: ""
-            },
-            rules: {
-                name: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-                password: [{ required: true, message: "请输入密码", trigger: "blur" }]
-            }
-        };
+  name: "login",
+  data() {
+    return {
+      subForm: {
+        name: "",
+        password: ""
+      },
+      checked: false,
+      rules: {
+        name: [{required: true, message: "请输入用户名", trigger: "blur"}],
+        password: [{required: true, message: "请输入密码", trigger: "blur"}]
+      }
+    }
+  },
+  methods: {
+    //点击登录
+    submitForm() {
+      this.$refs.Loginform.validate(valid => {
+        if (valid) {
+          this.login();
+          localStorage.setItem("name", this.subForm.name);
+        } else {
+          this.$message.error("请输入账号和密码");
+          console.log("error submit!!");
+          return false;
+        }
+      });
     },
-    methods: {
-        //点击登录
-        submitForm() {
-            this.$refs.Loginform.validate(valid => {
-                if (valid) {
-                    this.login();
-                    localStorage.setItem("name", this.subForm.name);
-                } else {
-                    this.$message.error("请输入账号和密码");
-                    console.log("error submit!!");
-                    return false;
-                }
-            });
-        },
-        async login() {
-            //发起http请求登录
-            const { status_code, data, message } = await this.$api.login(this.subForm);
-            if (!status_code) {
-                this.$message.success("登录成功");
-                localStorage.setItem("sign", data.sign);
-                this.$router.push("/");
-            } else {
-                this.$message.error(message);
-            }
-        }
+    async login() {
+      //发起http请求登录
+      const {status_code, data, message} = await this.$api.login(this.subForm);
+      if (!status_code) {
+        this.$message.success("登录成功");
+        localStorage.setItem("sign", data.sign);
+        this.$router.push("/");
+      } else {
+        this.$message.error(message);
+      }
     }
-};
+  }
+}
 </script>
+<style lang='scss' scoped>
+.login {
+  width: 100%;
+  height: 100vh;
+  background: url("/static/img/login-bg.png") no-repeat;
+  background-size: cover;
+  position: relative;
 
-<style lang="scss" scoped>
-.login-wrap {
-    /* 弹性布局 让页面元素垂直+水平居中 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* 让页面始终占浏览器可视区域总高度 */
-    height: 100vh;
-    /* 背景渐变色 */
-    background: linear-gradient(#141e30, #243b55);
-    .el-form {
-        width: 320px;
-        .el-form-item__error {
-            top: 60%;
+  .login-box {
+    width: 742px;
+    height: 408px;
+    background: #FFFFFF;
+    border-radius: 20px;
+
+    .login-form {
+      padding: 0 50px;
+
+      .top {
+        span {
+          font-size: 17px;
+          //font-weight: bold;
+          line-height: 20px;
+          color: #333333;
+
         }
-    }
-    .login {
-        /* 弹性布局 让子元素称为弹性项目 */
-        display: flex;
-        /* 让弹性项目垂直排列 原理是改变弹性盒子的主轴方向 父元素就是弹性盒子 现在改变后的主轴方向是向下了 */
-        flex-direction: column;
-        /* 让弹性项目在交叉轴方向水平居中 现在主轴的方向是向下 交叉轴的方向是与主轴垂直 交叉轴的方向是向右 */
-        align-items: center;
-        width: 400px;
-        padding: 40px;
-        background-color: rgba(0, 0, 0, 0.2);
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-    }
-    .login h2 {
-        color: #fff;
-        margin-bottom: 30px;
-    }
-    .login .login_box {
-        /* 相对定位 */
-        position: relative;
+      }
+
+      .form {
         width: 100%;
+
+      }
+
     }
-    .login .login_box input {
-        /* 清除input框自带的边框和轮廓 */
-        outline: none;
-        border: none;
-        width: 100%;
-        padding: 10px 0;
-        margin-bottom: 30px;
-        color: #fff;
+
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    p {
+      &:first-child {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 30px;
+        color: #FFFFFF;
+        opacity: 0.8;
+      }
+
+      &:last-child {
+        margin-top: 3px;
         font-size: 16px;
-        border-bottom: 1px solid #fff;
-        /* 背景颜色为透明色 */
-        background-color: transparent;
+        font-weight: 400;
+        line-height: 22px;
+        color: #FFFFFF;
+        opacity: 0.8;
+      }
     }
-    .login .login_box label {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10px 0;
-        color: #fff;
-        /* 这个属性的默认值是auto 默认是这个元素可以被点击 但是如果我们写了none 就是这个元素不能被点击 , 就好像它可见但是不能用 可望而不可即 */
-        /* 这个就是两者的区别 */
-        pointer-events: none;
-        /* 加个过渡 */
-        transition: all 0.5s;
-    }
-    /* :focus 选择器是当input获得焦点是触发的样式 + 是相邻兄弟选择器 去找与input相邻的兄弟label */
-    /* :valid 选择器是判断input框的内容是否合法,如果合法会执行下面的属性代码,不合法就不会执行,我们刚开始写布局的时候给input框写了required 我们删掉看对比 当没有required的话input框的值就会被认为一直合法,所以一直都是下方的样式 ,但是密码不会,密码框内的值为空,那么这句话局不合法,required不能为空 当我们给密码框写点东西的时候才会执行以下代码*/
-    .login .login_box input:focus + label,
-    .login .login_box input:valid + label {
-        top: -20px;
-        color: #03e9f4;
-        font-size: 12px;
-    }
-    .login a {
-        overflow: hidden;
-        position: relative;
-        padding: 10px 20px;
-        color: #03e9f4;
-        /* 取消a表现原有的下划线 */
-        text-decoration: none;
-        /* 同样加个过渡 */
-        transition: all 0.5s;
-    }
-    .login a:hover {
-        color: #fff;
-        border-radius: 5px;
-        background-color: #03e9f4;
-        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
-    }
-    .login a span {
-        position: absolute;
-    }
-    .login a span:first-child {
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 2px;
-        /* to right 就是往右边 下面的同理 */
-        background: linear-gradient(to right, transparent, #03e9f4);
-        /* 动画 名称 时长 linear是匀速运动 infinite是无限次运动 */
-        animation: move1 1s linear infinite;
-    }
-    .login a span:nth-child(2) {
-        right: 0;
-        top: -100%;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(transparent, #03e9f4);
-        /* 这里多了个0.25s其实是延迟时间 */
-        animation: move2 1s linear 0.25s infinite;
-    }
-    .login a span:nth-child(3) {
-        right: -100%;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(to left, transparent, #03e9f4);
-        animation: move3 1s linear 0.5s infinite;
-    }
-    .login a span:last-child {
-        left: 0;
-        bottom: -100%;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(#03e9f4, transparent);
-        animation: move4 1s linear 0.75s infinite;
-    }
-    /* 写一下动画 再坚持一下 视频马上就完了 */
-    @keyframes move1 {
-        0% {
-            left: -100%;
-        }
-        50%,
-        100% {
-            left: 100%;
-        }
-    }
-    @keyframes move2 {
-        0% {
-            top: -100%;
-        }
-        50%,
-        100% {
-            top: 100%;
-        }
-    }
-    @keyframes move3 {
-        0% {
-            right: -100%;
-        }
-        50%,
-        100% {
-            right: 100%;
-        }
-    }
-    @keyframes move4 {
-        0% {
-            bottom: -100%;
-        }
-        50%,
-        100% {
-            bottom: 100%;
-        }
-    }
+  }
 }
 </style>
+
+

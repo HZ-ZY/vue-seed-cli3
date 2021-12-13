@@ -17,7 +17,7 @@ export default {
     },
     created() {
        /*  setInterval(() => {
-            this.$api.user.login({
+            this.$api.user.test({
                 m: "Admin",
                 c: "Public",
                 a: "dologin"

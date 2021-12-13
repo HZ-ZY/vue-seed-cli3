@@ -8,17 +8,26 @@ const router = new Router({
             path: '/',
             component: () =>
                 import ( /* webpackChunkName: "home" */ '@/page/home'),
-            meta: { title: '首页' },
+            meta: {
+                title: '首页'
+            },
         },
         {
             path: '/login',
             component: () =>
-                import ( /* webpackChunkName: "login" */ '@/page/login'),
-            meta: { title: '登录' }
+                import ('@/page/login'),
+            meta: {
+                title: '登录'
+            }
         },
         {
-            path: '*',
-            redirect: '@/page/404.vue'
+            path: "/404",
+            component: () =>
+                import ('@/page/404'),
+        },
+        {
+            path: "*",
+            redirect: "/404"
         }
     ]
 });
