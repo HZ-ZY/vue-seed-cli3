@@ -4,13 +4,32 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 const router = new Router({
-    routes: [{
+    routes: [
+        // {
+        //     path: '/',
+        //     component: () =>
+        //         import ( /* webpackChunkName: "home" */ '@/layouts'),
+        //     meta: {
+        //         title: '首页'
+        //     },
+        //     children:[
+        //         {
+        //             path: 'home',
+        //             component: () =>
+        //                 import ( /* webpackChunkName: "home" */ '@/page/home'),
+        //             meta: {
+        //                 title: '首页'
+        //             },
+        //         }
+        //     ]
+        // },
+        {
             path: '/',
             component: () =>
                 import ( /* webpackChunkName: "home" */ '@/page/home'),
             meta: {
                 title: '首页'
-            },
+            }
         },
         {
             path: '/login',

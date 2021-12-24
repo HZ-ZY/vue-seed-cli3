@@ -1,14 +1,12 @@
 <template>
     <div id="app">
-        <Default />
+         <router-view :key="$route.fullpath"></router-view>
     </div>
 </template>
 <script>
-import Default from "./layouts/default.vue";
+
 export default {
-    components: {
-        Default
-    },
+   
     data() {
         return {};
     }
