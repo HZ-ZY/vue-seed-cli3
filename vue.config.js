@@ -59,6 +59,7 @@ module.exports = {
     pwa: {},
     // webpack-dev-server 相关配置
     devServer: {
+        disableHostCheck: true,
         open: true,
         host: "localhost",
         port: 8080,

@@ -1,8 +1,9 @@
 // 全局scss变量
 $red: #ccc;
-$color:#752928;
-$themeColor: #752928;
+$color:#5B9BD4;
+$themeColor: #5B9BD4;
 $black: black;
 :export {
     red: $red;
+    color:$color
 }

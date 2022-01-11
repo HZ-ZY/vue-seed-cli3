@@ -13,6 +13,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@/assets/scss/theme";
-@import "~@/assets/scss/custom";
+@import "~@/assets/scss/theme.scss";
+@import "~@/assets/scss/custom.scss";
+@import "~@/assets/scss/icon.scss";
 </style>
